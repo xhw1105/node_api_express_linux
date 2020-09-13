@@ -1,6 +1,7 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const morgan = require('morgan');
+const colors = require('colors');
 const logger = require('./middleware/logger');
 const errorHandler = require('./middleware/error');
 const connectDB = require('./config/db');
@@ -32,5 +33,7 @@ const PORT = process.env.PORT;
 
 app.listen(
   PORT,
-  console.log(`Server running in ${process.env.NODE_ENV} on ${PORT}`)
+  console.log(
+    `Server running in ${process.env.NODE_ENV} on ${PORT}`.yellow.bold
+  )
 );
